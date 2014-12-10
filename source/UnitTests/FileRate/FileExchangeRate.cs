@@ -25,7 +25,6 @@ namespace FileRate
                     xm.LoadXml(response);
                     var value = xm["rates"][from][to].InnerText;
                     return double.Parse(value, CultureInfo.InvariantCulture);
-
                 }
             }
             catch 

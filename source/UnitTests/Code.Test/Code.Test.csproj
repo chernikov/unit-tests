@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F9B3CD52-F78A-4D36-B91E-A163F1C1D38B}</ProjectGuid>
+    <ProjectGuid>{6EE0C1DC-9A34-4454-BB3B-579D8F9DFECF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Code</RootNamespace>
-    <AssemblyName>Code</AssemblyName>
+    <RootNamespace>Code.Test</RootNamespace>
+    <AssemblyName>Code.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1409.1722\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,26 +45,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrencyExchange.cs" />
+    <Compile Include="CurrencyExchangeTests.cs" />
+    <Compile Include="FakeExchangeRate.cs" />
+    <Compile Include="MockExchangeRate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Exchanging\NetRate\NetRate.csproj">
-      <Project>{89066fc5-4353-47fc-8c10-043b581c6b64}</Project>
-      <Name>NetRate</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FileRate\FileRate.csproj">
-      <Project>{4e3b007b-8e8f-4d31-b6f2-2f364bd8a578}</Project>
-      <Name>FileRate</Name>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Code\Code.csproj">
+      <Project>{f9b3cd52-f78a-4d36-b91e-a163f1c1d38b}</Project>
+      <Name>Code</Name>
     </ProjectReference>
     <ProjectReference Include="..\Rate.Common\Rate.Common.csproj">
       <Project>{a489a569-185b-4f01-a167-5d574660040b}</Project>
       <Name>Rate.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>xcopy $(SolutionDir)rate.xml $(TargetDir) /y</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
