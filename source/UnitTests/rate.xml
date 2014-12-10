@@ -1,0 +1,22 @@
+﻿<rates>
+  <EUR>
+    <RUR>60.6250</RUR>
+    <UAH>21.0000</UAH>
+    <USD>1.1412</USD>
+  </EUR>
+  <RUR>
+    <EUR>0.0138</EUR>
+    <UAH>0.3200</UAH>
+    <USD>0.0171</USD>
+  </RUR>
+  <UAH>
+    <EUR>0.0515</EUR>
+    <RUR>3.4483</RUR>
+    <USD>0.0629</USD>
+  </UAH>
+  <USD>
+    <EUR>0.7571</EUR>
+    <RUR>49.6875</RUR>
+    <UAH>17.0000</UAH>
+  </USD>
+</rates>

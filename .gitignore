@@ -1,0 +1,6 @@
+\bin
+\obj
+*.suo
+\UnitTests.sln.ide
+\packages
+source/UnitTests/UnitTests.sln.ide
